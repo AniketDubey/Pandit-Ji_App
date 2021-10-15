@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:panditjiapp/screens/LoginUser.dart';
+import 'package:panditjiapp/screens/SignUpPandit.dart';
+import 'package:panditjiapp/screens/SignUpUser.dart';
 
 class Authenticate_Screen extends StatefulWidget {
   //const Authenticate_Screen({Key? key}) : super(key: key);
@@ -84,7 +86,15 @@ class _Authenticate_ScreenState extends State<Authenticate_Screen> {
                     FloatingActionButton.extended(
                       heroTag: "h3",
                       icon: Icon(Icons.login),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) {
+                              return SignUpUser();
+                            },
+                          ),
+                        );
+                      },
                       label: Text("SignUp As User"),
                     ),
                   ],
@@ -100,7 +110,15 @@ class _Authenticate_ScreenState extends State<Authenticate_Screen> {
                     FloatingActionButton.extended(
                       heroTag: "h4",
                       icon: Icon(Icons.login),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) {
+                              return SignUpPandit();
+                            },
+                          ),
+                        );
+                      },
                       label: Text("SignUp As PanditJi"),
                     ),
                   ],
