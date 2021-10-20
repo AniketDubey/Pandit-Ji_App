@@ -2,10 +2,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-class SignUpPandit extends StatelessWidget {
+class SignUpPandit extends StatefulWidget {
   //const LoginUser({Key? key}) : super(key: key);
 
+  @override
+  State<SignUpPandit> createState() => _SignUpPanditState();
+}
+
+class _SignUpPanditState extends State<SignUpPandit> {
   final _loginUser = GlobalKey<FormState>();
 
   String passValidator(String password) {
@@ -13,8 +21,41 @@ class SignUpPandit extends StatelessWidget {
     return "OK";
   }
 
+  List<dynamic> filData = [{}];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    /* FirebaseFirestore.instance
+        .collection('BusQR')
+        .where("Station", arrayContainsAny: ["P"])
+        .get()
+        .then((value) {
+          value.docs.forEach((element) {
+            //print(element.data());
+            filData.add(element.data());
+          });
+        }); */
+
+    var data = FirebaseFirestore.instance
+        .collection('BusQR')
+        .where("Station", arrayContainsAny: ["P"])
+        .where("PasLog", isEqualTo: 26)
+        .get();
+
+    data.then((value) {
+      value.docs.forEach((element) {
+        print(element.data());
+        filData.add(element.data());
+      });
+    });
+    //print(filData.length);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    //print(filData.length);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
@@ -27,47 +68,16 @@ class SignUpPandit extends StatelessWidget {
         ),
         elevation: 20,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(15),
-          child: Column(
-            children: [
-              Container(
-                color: Colors.yellow,
-                height: MediaQuery.of(context).size.height * 0.45,
-                child: Row(
-                  children: [
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.25,
-                      width: MediaQuery.of(context).size.width * 0.25,
-                      child: Image.asset("assets/images/key.jpg"),
-                    ),
-                    Spacer(),
-                    Column(
-                      children: [
-                        Container(
-                          width: 20,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Name*",
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: 20,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              labelText: "Name*",
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+      body: Padding(
+        padding: EdgeInsets.all(15),
+        child: FloatingActionButton.extended(
+          onPressed: () {
+            //print(filData.length);
+            filData.forEach((element) {
+              print(element);
+            });
+          },
+          label: Text("Press"),
         ),
       ),
     );

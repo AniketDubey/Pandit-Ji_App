@@ -1,7 +1,11 @@
-// ignore_for_file: camel_case_types, file_names, prefer_const_constructors
+// ignore_for_file: camel_case_types, file_names, prefer_const_constructors, avoid_web_libraries_in_flutter
 
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:panditjiapp/screens/Scanqr.dart';
 import 'package:panditjiapp/screens/LoginUser.dart';
+import 'package:panditjiapp/screens/MinorCheck.dart';
+import 'package:panditjiapp/screens/QRCode.dart';
 import 'package:panditjiapp/screens/SignUpPandit.dart';
 import 'package:panditjiapp/screens/SignUpUser.dart';
 
@@ -134,7 +138,13 @@ class _Authenticate_ScreenState extends State<Authenticate_Screen> {
                     FloatingActionButton.extended(
                       heroTag: "h5",
                       icon: Icon(Icons.login),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => Scanqr(),
+                          ),
+                        );
+                      },
                       label: Text("Help"),
                     ),
                   ],

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "656270360582",
+    "firebase_url": "https://checkminor-default-rtdb.firebaseio.com",
+    "project_id": "checkminor",
+    "storage_bucket": "checkminor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:656270360582:android:0ad693d85bb6c5a2e04387",
+        "android_client_info": {
+          "package_name": "com.example.panditjiapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "656270360582-a4ul4h96q9o2i405lvu87p0kvjfjanhq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTB00GOY5Pmmat2xkiADE_RHpN8Z0OloA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "656270360582-a4ul4h96q9o2i405lvu87p0kvjfjanhq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
