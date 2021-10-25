@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:panditjiapp/screens/HomePageScreen.dart';
 import 'package:panditjiapp/screens/Scanqr.dart';
 import 'package:panditjiapp/screens/LoginUser.dart';
 import 'package:panditjiapp/screens/MinorCheck.dart';
@@ -141,7 +142,7 @@ class _Authenticate_ScreenState extends State<Authenticate_Screen> {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (_) => Scanqr(),
+                            builder: (_) => HomePageScreen(),
                           ),
                         );
                       },

@@ -37,10 +37,17 @@ class _SignUpPanditState extends State<SignUpPandit> {
           });
         }); */
 
-    var data = FirebaseFirestore.instance
+    /* var data = FirebaseFirestore.instance
         .collection('BusQR')
         .where("Station", arrayContainsAny: ["P"])
         .where("PasLog", isEqualTo: 26)
+        .get(); */
+
+    //var data = FirebaseFirestore.instance.collection("BusQR").get();
+
+    var data = FirebaseFirestore.instance
+        .collection("BusQR")
+        .orderBy("Sdetails")
         .get();
 
     data.then((value) {
@@ -73,9 +80,10 @@ class _SignUpPanditState extends State<SignUpPandit> {
         child: FloatingActionButton.extended(
           onPressed: () {
             //print(filData.length);
-            filData.forEach((element) {
+            /* filData.forEach((element) {
               print(element);
-            });
+            }); */
+            //print(filData[1]["Sdetails"]["1"]["C"][0]); // isi form mein data hai dhyan se dekho
           },
           label: Text("Press"),
         ),
