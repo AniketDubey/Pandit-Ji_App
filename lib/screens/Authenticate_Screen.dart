@@ -91,14 +91,28 @@ class _Authenticate_ScreenState extends State<Authenticate_Screen> {
                     FloatingActionButton.extended(
                       heroTag: "h3",
                       icon: Icon(Icons.login),
-                      onPressed: () {
-                        Navigator.of(context).push(
+                      onPressed: () async {
+                        /*  Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (_) {
+
+                              
+
                               return SignUpUser();
                             },
                           ),
-                        );
+                        ); */
+
+                        try {
+                          var data = await http.get(
+                            Uri.parse(
+                                "http://E0NQsoWp8WxeEB9wAFP77oAoWvYojoA4"),
+                          );
+
+                          print(data);
+                        } catch (error) {
+                          print(error);
+                        }
                       },
                       label: Text("SignUp As User"),
                     ),
