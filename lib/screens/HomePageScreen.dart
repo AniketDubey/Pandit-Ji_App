@@ -36,11 +36,11 @@ class HomePageScreen extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  print("frome here ${details["Source"]}");
-                  print(details["Destination"]);
+                  print("Source is ${details["Source"]}");
+                  print("Destination is ${details["Destination"]}");
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) => BusDetailScreen(),
+                      builder: (_) => BusDetailScreen(details),
                     ),
                   );
                 },

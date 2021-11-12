@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 
 class FutureCheck extends StatefulWidget {
-  const FutureCheck({Key? key}) : super(key: key);
+  //const FutureCheck({Key? key}) : super(key: key);
 
   @override
   _FutureCheckState createState() => _FutureCheckState();
